@@ -89,6 +89,6 @@
 @endsection
 @section('scripts')
     @parent
-    <script src="js/Chart.min.js"></script>
+    <script src="{{ asset('assets/js/Chart.min.js') }}"></script>
     {!! $chart->renderJs() !!}
 @endsection

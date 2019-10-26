@@ -11,7 +11,7 @@
                 </div>
                 <div class="panel-body">
 
-                    <form action="{{ route("admin.users.store") }}" method="POST" enctype="multipart/form-data">
+                    <form name="f" action="{{ route("admin.users.store") }}" id="formu" method="POST" enctype="multipart/form-data" onsubmit="return validar()">
                         @csrf
                         <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
                             <label for="name">{{ trans('global.user.fields.name') }}*</label>
@@ -70,7 +70,7 @@
                             </p>
                         </div>
                         <div>
-                            <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}">
+                            <input class="btn btn-danger" type="submit" value="{{ trans('global.save') }}" onclick="validar()">
                         </div>
                     </form>
 
@@ -81,3 +81,26 @@
     </div>
 </div>
 @endsection
+<script type="text/javascript">
+
+
+    function validar() {
+        var correos="yahoo hotmail gmail";
+        /*Luego dividimos por el @ el contenido del email con la metodo split y lo
+        guardamos en la variable dominio*/
+        console.log(document.f.email.value);
+
+        var dominio=document.f.email.value.split("@");
+        /*Ahora en dominio[1] contiene 'dominio.com' lo volvemos a dividir para obtener
+        el dominio de correo lo que esta antes del punto, tambien con el metodo split.*/
+        var server=dominio[1].split(".");
+        /*Finalmente verificamos si server[0] que contiene el dominio de correo esta
+        dentro del textio correos con la funcion match, el resultado se almacena en res*/
+        var res=correos.match(server[0]);
+        if (res==null) {
+            alert("Correo Invalido. Dominios Aceptados: Gmail, Hotmail, Yahoo");
+            return false;
+        }
+        return true;
+    }
+</script>

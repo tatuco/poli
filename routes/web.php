@@ -14,6 +14,8 @@ Route::resource('/modelos','ModeloController');
 Route::resource('/repuestos','RepuestosController');
 Route::resource('/tipos','TipoUnidadController');
 Route::resource('/unidades','UnidadesController');
+Route::resource('/bitacora','BitacoraController');
+
 
 
 Auth::routes();

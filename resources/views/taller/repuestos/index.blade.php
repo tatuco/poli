@@ -1,6 +1,55 @@
 @extends('layouts.admin')
 @section('content')
 <div class="content">
+
+        <div class="row">
+                <div class="col-md-6">
+                    <h3>Repuestos por Unidad</h3>
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th>Unidad</th>
+                            <th>Cantidad</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @forelse($repuestos_unidad as $entry)
+                            <tr>
+                                <td>{{ $entry->tipo_unidad }}</td>
+                                <td>{{ $entry->count_unidad }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="3">{{ __('No entries found') }}</td>
+                            </tr>
+                        @endforelse
+                        </tbody>
+                    </table>
+                </div>
+            <div class="col-md-6">
+                <h3>Repuestos por Modelo</h3>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th>Modelo</th>
+                        <th>Cantidad</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @forelse($repuestos_modelo as $entry)
+                        <tr>
+                            <td>{{ $entry->modelo }}</td>
+                            <td>{{ $entry->count_modelo }}</td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="3">{{ __('No entries found') }}</td>
+                        </tr>
+                    @endforelse
+                    </tbody>
+                </table>
+            </div>
+        </div>
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
                 <a class="btn btn-success" href="{{ route("repuestos.create") }}">

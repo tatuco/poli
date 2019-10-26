@@ -25,7 +25,7 @@ class MandoController extends Controller
      */
     public function create()
     {
-        return view("taller.mando.create");
+        return view("taller.mandos.create");
     }
 
     /**

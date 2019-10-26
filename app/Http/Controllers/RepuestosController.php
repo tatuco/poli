@@ -17,7 +17,15 @@ class RepuestosController extends Controller
     public function index()
     {
         $data = Repuestos::all();
-        return view("taller.repuestos.index", compact("data"));
+        $repuestos_unidad = Repuestos::selectRaw('tipo_unidad, COUNT(tipo_unidad) AS count_unidad')
+                                ->groupBy( 'tipo_unidad')
+                                ->get();
+        $repuestos_modelo = Repuestos::selectRaw('modelo, COUNT(modelo) AS count_modelo')
+            ->groupBy('modelo')
+            ->get();
+
+
+        return view("taller.repuestos.index", compact("data", "repuestos_modelo", "repuestos_unidad"));
     }
 
     /**

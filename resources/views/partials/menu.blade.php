@@ -80,6 +80,13 @@
                     <span>Colores</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ route("bitacora.index") }}">
+                    <i class="fas fa-unlock-alt">
+                    </i>
+                    <span>Bitacora</span>
+                </a>
+            </li>
             @can('user_management_access')
                 <li class="treeview">
                     <a>

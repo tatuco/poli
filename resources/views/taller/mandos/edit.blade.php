@@ -11,15 +11,15 @@
                 </div>
                 <div class="panel-body">
 
-                    <form action="{{ route("estados.update", [$estado->id]) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route("mandos.update", [$mando->id]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <div class="form-group {{ $errors->has('estado') ? 'has-error' : '' }}">
-                            <label for="estado">Estado*</label>
-                            <input type="text"  id="estado" name="estado" class="form-control" value="{{ $estado->estado }}">
-                            @if($errors->has('estado'))
+                        <div class="form-group {{ $errors->has('mando') ? 'has-error' : '' }}">
+                            <label for="mando">Mando*</label>
+                            <input type="text"  id="mando" name="mando" class="form-control" value="{{ $mando->mando }}">
+                            @if($errors->has('mando'))
                                 <p class="help-block">
-                                    {{ $errors->first('estado') }}
+                                    {{ $errors->first('mando') }}
                                 </p>
                             @endif
                         </div>

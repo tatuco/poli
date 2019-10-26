@@ -8,8 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ trans('global.site_title') }}</title>
-    <link href="css/AdminLTE.min.css" rel="stylesheet" />
- <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="{{ asset('assets/css/AdminLTE.min.css') }}" rel="stylesheet" />
+ <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
 <!--- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
  <link href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/css/AdminLTE.min.css" rel="stylesheet" />--->
 </head>
