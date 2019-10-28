@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2019 a las 16:41:11
+-- Tiempo de generación: 28-10-2019 a las 02:28:26
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -68,7 +68,111 @@ CREATE TABLE `audit_admin` (
 --
 
 INSERT INTO `audit_admin` (`id`, `entity`, `action`, `date`, `created_at`, `updated_at`) VALUES
-(1, 'Usuario', 'Creando Usuario con id: 3', '2019-10-11 08:10:17', '2019-10-12 01:30:17', '2019-10-12 01:30:17');
+(1, 'Usuario', 'Creando Usuario con id: 3', '2019-10-11 08:10:17', '2019-10-12 01:30:17', '2019-10-12 01:30:17'),
+(2, 'Usuario', 'Creando Usuario 23', '2019-10-25 05:10:12', '2019-10-25 22:09:12', '2019-10-25 22:09:12'),
+(3, 'Usuario', 'Creando Usuario 24', '2019-10-25 05:10:56', '2019-10-25 22:20:56', '2019-10-25 22:20:56'),
+(4, 'Usuario', 'Creando Usuario 25', '2019-10-25 05:10:09', '2019-10-25 22:23:09', '2019-10-25 22:23:09'),
+(5, 'Usuario', 'Creando Usuario 26', '2019-10-25 05:10:12', '2019-10-25 22:23:12', '2019-10-25 22:23:12'),
+(6, 'Usuario', 'Creando Usuario 27', '2019-10-25 06:10:36', '2019-10-25 23:01:36', '2019-10-25 23:01:36'),
+(7, 'Usuario', 'Creando Usuario 28', '2019-10-25 06:10:02', '2019-10-25 23:04:02', '2019-10-25 23:04:02'),
+(8, 'Usuario', 'Creando Usuario 29', '2019-10-25 06:10:46', '2019-10-25 23:05:46', '2019-10-25 23:05:46'),
+(9, 'Usuario', 'Creando Usuario 30', '2019-10-25 06:10:50', '2019-10-25 23:16:50', '2019-10-25 23:16:50');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `bitacora`
+--
+
+CREATE TABLE `bitacora` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `action` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `entity` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `date` datetime NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `bitacora`
+--
+
+INSERT INTO `bitacora` (`id`, `user`, `email`, `action`, `entity`, `date`, `created_at`, `updated_at`) VALUES
+(1, 'Admin', 'admin@admin.com', 'listando', 'mandos', '2019-10-25 07:10:46', '2019-10-26 00:49:46', '2019-10-26 00:49:46'),
+(2, 'Admin', 'admin@admin.com', 'editando', 'mandos', '2019-10-25 07:10:51', '2019-10-26 00:49:51', '2019-10-26 00:49:51'),
+(3, 'Admin', 'admin@admin.com', 'listando', 'mandos', '2019-10-25 07:10:51', '2019-10-26 00:49:51', '2019-10-26 00:49:51'),
+(4, 'Admin', 'admin@admin.com', 'eliminando', 'mandos', '2019-10-25 07:10:04', '2019-10-26 00:55:04', '2019-10-26 00:55:04'),
+(5, 'Admin', 'admin@admin.com', 'listando', 'mandos', '2019-10-25 07:10:04', '2019-10-26 00:55:04', '2019-10-26 00:55:04'),
+(6, 'Admin', 'admin@admin.com', 'listando', 'mandos', '2019-10-25 07:10:25', '2019-10-26 00:55:25', '2019-10-26 00:55:25'),
+(7, 'Admin', 'admin@admin.com', 'listando', 'mandos', '2019-10-25 08:10:23', '2019-10-26 01:02:23', '2019-10-26 01:02:23'),
+(8, 'Admin', 'admin@admin.com', 'creando', 'estados', '2019-10-25 08:10:29', '2019-10-26 01:02:29', '2019-10-26 01:02:29'),
+(9, 'Admin', 'admin@admin.com', 'listando', 'estados', '2019-10-25 08:10:29', '2019-10-26 01:02:29', '2019-10-26 01:02:29'),
+(10, 'Admin', 'admin@admin.com', 'listando', 'mandos', '2019-10-25 08:10:43', '2019-10-26 01:02:43', '2019-10-26 01:02:43'),
+(11, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 08:10:49', '2019-10-26 01:02:49', '2019-10-26 01:02:49'),
+(12, 'Admin', 'admin@admin.com', 'Inicio de Sesion.', 'login', '2019-10-25 08:10:29', '2019-10-26 01:18:29', '2019-10-26 01:18:29'),
+(13, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 08:10:30', '2019-10-26 01:18:30', '2019-10-26 01:18:30'),
+(14, 'Admin', 'admin@admin.com', 'listando', 'asignaciones', '2019-10-25 08:10:49', '2019-10-26 01:24:49', '2019-10-26 01:24:49'),
+(15, 'Admin', 'admin@admin.com', 'Saliendo del sistema.', 'logout', '2019-10-25 08:10:23', '2019-10-26 01:26:23', '2019-10-26 01:26:23'),
+(16, 'Admin', 'admin@admin.com', 'Inicio de Sesion.', 'login', '2019-10-25 08:10:34', '2019-10-26 01:40:34', '2019-10-26 01:40:34'),
+(17, 'Admin', 'admin@admin.com', 'Inicio de Sesion.', 'login', '2019-10-25 08:10:15', '2019-10-26 01:41:15', '2019-10-26 01:41:15'),
+(18, 'Admin', 'admin@admin.com', 'Inicio de Sesion.', 'login', '2019-10-25 08:10:38', '2019-10-26 01:44:38', '2019-10-26 01:44:38'),
+(19, 'Admin', 'admin@admin.com', 'Inicio de Sesion.', 'login', '2019-10-25 08:10:10', '2019-10-26 01:46:10', '2019-10-26 01:46:10'),
+(20, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 08:10:11', '2019-10-26 01:46:11', '2019-10-26 01:46:11'),
+(21, 'Admin', 'admin@admin.com', 'Saliendo del sistema.', 'logout', '2019-10-25 08:10:15', '2019-10-26 01:46:15', '2019-10-26 01:46:15'),
+(22, 'Admin', 'admin@admin.com', 'Inicio de Sesion.', 'login', '2019-10-25 08:10:38', '2019-10-26 01:49:38', '2019-10-26 01:49:38'),
+(23, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 08:10:38', '2019-10-26 01:49:38', '2019-10-26 01:49:38'),
+(24, 'Admin', 'admin@admin.com', 'Saliendo del sistema.', 'logout', '2019-10-25 08:10:42', '2019-10-26 01:49:42', '2019-10-26 01:49:42'),
+(25, 'Admin', 'admin@admin.com', 'Inicio de Sesion.', 'login', '2019-10-25 08:10:54', '2019-10-26 01:50:54', '2019-10-26 01:50:54'),
+(26, 'Admin', 'admin@admin.com', 'listando', 'home', '2019-10-25 08:10:54', '2019-10-26 01:50:54', '2019-10-26 01:50:54'),
+(27, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 08:10:54', '2019-10-26 01:50:54', '2019-10-26 01:50:54'),
+(28, 'Admin', 'admin@admin.com', 'Saliendo del sistema.', 'logout', '2019-10-25 08:10:57', '2019-10-26 01:50:57', '2019-10-26 01:50:57'),
+(29, 'Admin', 'admin@admin.com', 'Inicio de Sesion.', 'login', '2019-10-25 10:10:48', '2019-10-26 03:03:48', '2019-10-26 03:03:48'),
+(30, 'Admin', 'admin@admin.com', 'listando', 'home', '2019-10-25 10:10:49', '2019-10-26 03:03:49', '2019-10-26 03:03:49'),
+(31, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 10:10:49', '2019-10-26 03:03:49', '2019-10-26 03:03:49'),
+(32, 'Admin', 'admin@admin.com', 'listando', 'mandos', '2019-10-25 10:10:23', '2019-10-26 03:07:23', '2019-10-26 03:07:23'),
+(33, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:25', '2019-10-26 03:07:25', '2019-10-26 03:07:25'),
+(34, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:48', '2019-10-26 03:07:48', '2019-10-26 03:07:48'),
+(35, 'Admin', 'admin@admin.com', 'editando', 'unidades', '2019-10-25 10:10:54', '2019-10-26 03:07:54', '2019-10-26 03:07:54'),
+(36, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:55', '2019-10-26 03:07:55', '2019-10-26 03:07:55'),
+(37, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:38', '2019-10-26 03:20:38', '2019-10-26 03:20:38'),
+(38, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:47', '2019-10-26 03:20:47', '2019-10-26 03:20:47'),
+(39, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:08', '2019-10-26 03:22:08', '2019-10-26 03:22:08'),
+(40, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:59', '2019-10-26 03:26:59', '2019-10-26 03:26:59'),
+(41, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:23', '2019-10-26 03:28:23', '2019-10-26 03:28:23'),
+(42, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:33', '2019-10-26 03:28:33', '2019-10-26 03:28:33'),
+(43, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:45', '2019-10-26 03:28:45', '2019-10-26 03:28:45'),
+(44, 'Admin', 'admin@admin.com', 'listando', 'bitacora', '2019-10-25 10:10:50', '2019-10-26 03:28:50', '2019-10-26 03:28:50'),
+(45, 'Admin', 'admin@admin.com', 'listando', 'bitacora', '2019-10-25 10:10:10', '2019-10-26 03:29:10', '2019-10-26 03:29:10'),
+(46, 'Admin', 'admin@admin.com', 'listando', 'modelos', '2019-10-25 10:10:28', '2019-10-26 03:32:28', '2019-10-26 03:32:28'),
+(47, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 10:10:36', '2019-10-26 03:32:36', '2019-10-26 03:32:36'),
+(48, 'Admin', 'admin@admin.com', 'listando', 'bitacora', '2019-10-25 10:10:18', '2019-10-26 03:35:18', '2019-10-26 03:35:18'),
+(49, 'Admin', 'admin@admin.com', 'listando', 'unidades', '2019-10-25 10:10:50', '2019-10-26 03:42:50', '2019-10-26 03:42:50'),
+(50, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 10:10:56', '2019-10-26 03:42:56', '2019-10-26 03:42:56'),
+(51, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 10:10:14', '2019-10-26 03:44:14', '2019-10-26 03:44:14'),
+(52, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 11:10:02', '2019-10-26 04:04:02', '2019-10-26 04:04:02'),
+(53, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:42', '2019-10-26 04:13:42', '2019-10-26 04:13:42'),
+(54, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:09', '2019-10-26 04:16:09', '2019-10-26 04:16:09'),
+(55, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:48', '2019-10-26 04:16:48', '2019-10-26 04:16:48'),
+(56, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:19', '2019-10-26 04:17:19', '2019-10-26 04:17:19'),
+(57, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:39', '2019-10-26 04:18:39', '2019-10-26 04:18:39'),
+(58, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:00', '2019-10-26 04:20:00', '2019-10-26 04:20:00'),
+(59, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:02', '2019-10-26 04:21:02', '2019-10-26 04:21:02'),
+(60, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:30', '2019-10-26 04:22:30', '2019-10-26 04:22:30'),
+(61, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:46', '2019-10-26 04:23:46', '2019-10-26 04:23:46'),
+(62, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:25', '2019-10-26 04:24:25', '2019-10-26 04:24:25'),
+(63, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:55', '2019-10-26 04:24:55', '2019-10-26 04:24:55'),
+(64, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:52', '2019-10-26 04:25:52', '2019-10-26 04:25:52'),
+(65, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:26', '2019-10-26 04:26:26', '2019-10-26 04:26:26'),
+(66, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:43', '2019-10-26 04:27:43', '2019-10-26 04:27:43'),
+(67, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:36', '2019-10-26 04:28:36', '2019-10-26 04:28:36'),
+(68, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 11:10:48', '2019-10-26 04:28:48', '2019-10-26 04:28:48'),
+(69, 'Admin', 'admin@admin.com', 'listando', 'bitacora', '2019-10-25 11:10:58', '2019-10-26 04:28:58', '2019-10-26 04:28:58'),
+(70, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:01', '2019-10-26 04:29:01', '2019-10-26 04:29:01'),
+(71, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:24', '2019-10-26 04:30:24', '2019-10-26 04:30:24'),
+(72, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 11:10:11', '2019-10-26 04:31:11', '2019-10-26 04:31:11'),
+(73, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 11:10:16', '2019-10-26 04:31:16', '2019-10-26 04:31:16');
 
 -- --------------------------------------------------------
 
@@ -135,7 +239,8 @@ INSERT INTO `estado` (`id`, `estado`) VALUES
 (2, 'espera'),
 (3, 'reparacion'),
 (4, 'disponible'),
-(5, 'alta');
+(5, 'alta'),
+(7, 'tierni');
 
 -- --------------------------------------------------------
 
@@ -154,10 +259,9 @@ CREATE TABLE `mando` (
 --
 
 INSERT INTO `mando` (`id`, `mando`, `activo`) VALUES
-(1, 'oficial', 1),
+(1, 'oficiala', 1),
 (2, 'comisario', 1),
-(4, 'yo', 0),
-(6, 'tenient', 0),
+(4, 'yoasdasdsfsd', 0),
 (7, 'agente', 0);
 
 -- --------------------------------------------------------
@@ -184,7 +288,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (45, '2019_04_16_084008529760_create_1555404008529_permission_role_pivot_table', 1),
 (46, '2019_04_16_084008657099_create_1555404008656_role_user_pivot_table', 1),
 (47, '2019_04_16_085008124252_add_last_login_at_to_users_table', 1),
-(48, '2019_10_11_193725_create_audit_admin_table', 1);
+(48, '2019_10_11_193725_create_audit_admin_table', 1),
+(50, '2019_10_25_182035_create_bitacora_table', 2);
 
 -- --------------------------------------------------------
 
@@ -382,7 +487,15 @@ INSERT INTO `role_user` (`user_id`, `role_id`) VALUES
 (19, 2),
 (20, 2),
 (21, 2),
-(22, 2);
+(22, 2),
+(23, 2),
+(24, 2),
+(25, 2),
+(26, 2),
+(27, 2),
+(28, 2),
+(29, 2),
+(30, 2);
 
 -- --------------------------------------------------------
 
@@ -429,7 +542,7 @@ INSERT INTO `unidades` (`id`, `placa`, `id_modelo`, `id_estado`, `id_color`, `id
 (1, 'fff555', 2, 2, 2, 2, 1),
 (2, 'gfgfsg', 2, 2, 2, 2, 1),
 (5, 'fff55556', 2, 1, 1, 1, 1),
-(6, 'fff55556', 2, 1, 1, 2, 1),
+(6, 'fff555564', NULL, NULL, NULL, NULL, 1),
 (7, '0001', NULL, NULL, NULL, NULL, 1),
 (8, '0002', 2, 1, 1, 1, 1),
 (9, '004', 2, 1, 1, 1, 1);
@@ -459,7 +572,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `activo`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`, `last_login_at`) VALUES
-(1, 'Admin', 'admin@admin.com', 1, NULL, '$2y$10$iGIs9vT1KvnMf1aph4uFHuO0ebEnXr/tu6AemWTZanW13a7Gjb0Ua', NULL, '2019-10-11 13:40:35', '2019-10-13 03:34:40', NULL, '2019-10-13 03:34:40'),
+(1, 'Admin', 'admin@admin.com', 1, NULL, '$2y$10$iGIs9vT1KvnMf1aph4uFHuO0ebEnXr/tu6AemWTZanW13a7Gjb0Ua', NULL, '2019-10-11 13:40:35', '2019-10-26 03:03:48', NULL, '2019-10-26 03:03:48'),
 (2, 'Maria Jose', 'mariajose@gmail.com', 1, NULL, '$2y$10$iGIs9vT1KvnMf1aph4uFHuO0ebEnXr/tu6AemWTZanW13a7Gjb0Ua', NULL, '2019-10-11 13:40:35', '2019-10-11 13:40:35', NULL, NULL),
 (3, 'Talon Larsonsdas', 'chand@example.com', 1, '2019-10-11 17:10:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'h38MBFxq1K', '2019-10-11 22:10:03', '2019-10-12 01:30:17', NULL, '2019-09-11 22:10:03'),
 (4, 'Osvaldo Hodkiewicz III', 'mfay@example.net', 1, '2019-10-11 17:10:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'PiCnvD8rBN', '2019-10-11 22:10:03', '2019-10-11 22:10:03', NULL, '2019-09-11 22:10:03'),
@@ -480,7 +593,15 @@ INSERT INTO `users` (`id`, `name`, `email`, `activo`, `email_verified_at`, `pass
 (19, 'Aron Marvin Jr.', 'bergnaum.emil@example.com', 1, '2019-10-11 17:10:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'BRhN9zWloC', '2019-10-11 22:10:04', '2019-10-11 22:10:04', NULL, '2019-09-30 22:10:03'),
 (20, 'Emerald Hansen', 'wolson@example.com', 1, '2019-10-11 17:10:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'I0kAjTyS4Q', '2019-10-11 22:10:04', '2019-10-11 22:10:04', NULL, '2019-09-28 22:10:03'),
 (21, 'Johnpaul Friesen', 'javon.botsford@example.org', 1, '2019-10-11 17:10:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'zd00978Sf9', '2019-10-11 22:10:05', '2019-10-11 22:10:05', NULL, '2019-08-11 22:10:03'),
-(22, 'Cassidy Dietrich III', 'gutkowski.annabelle@example.net', 1, '2019-10-11 17:10:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'e2vPvj93e9', '2019-10-11 22:10:05', '2019-10-11 22:10:05', NULL, '2019-09-05 22:10:03');
+(22, 'Cassidy Dietrich III', 'gutkowski.annabelle@example.net', 1, '2019-10-11 17:10:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'e2vPvj93e9', '2019-10-11 22:10:05', '2019-10-11 22:10:05', NULL, '2019-09-05 22:10:03'),
+(23, 'asd', 'asd@asd.com', 1, NULL, '$2y$10$VQu3mbpPQtjHw7m8QaR8t..U6bUKQmKjw/j8/QiaC/arjrAC8mAlO', NULL, '2019-10-25 22:09:11', '2019-10-25 22:09:11', NULL, NULL),
+(24, 'aaaa', 'aaa@fsaaaafas.com', 1, NULL, '$2y$10$9zPjgYZgAvCvOJReajRIveVU1JiByCx.BDgikArxZut3F46dLl2Ga', NULL, '2019-10-25 22:20:56', '2019-10-25 22:20:56', NULL, NULL),
+(25, 'aaaa', 'aaa@fsaaaafas.com', 1, NULL, '$2y$10$c4bpQSAvBrz9pg84eWwYeeUv.Gu8f5mQDNMiY7no.3GZWU7bmY13u', NULL, '2019-10-25 22:23:09', '2019-10-25 22:23:09', NULL, NULL),
+(26, 'aaaa', 'aaa@fsaaaafas.com', 1, NULL, '$2y$10$lV9uUBzcOUDLgnSGTUZSPOQkL.d9BlB.pjg6byyXKX6du8czfO7im', NULL, '2019-10-25 22:23:12', '2019-10-25 22:23:12', NULL, NULL),
+(27, 'aaaa', 'aaa@asdasda.com', 1, NULL, '$2y$10$Va6KEu5OpBwjkokGdigwbelpnug3.pcnjYMSCWonTQwBZWIJN.4ai', NULL, '2019-10-25 23:01:36', '2019-10-25 23:01:36', NULL, NULL),
+(28, 'dasdas', 'dasdas@adsad.com', 1, NULL, '$2y$10$qmTxGDRFbAHi7P6ezqbSi.tsfWZPI8zTiLbjAlVhAoemVegZchJN.', NULL, '2019-10-25 23:04:02', '2019-10-25 23:04:02', NULL, NULL),
+(29, 'dasdas', 'dasdasdd@addddsad.com', 1, NULL, '$2y$10$H8nipjng5qg7fPBgPLSfuelzakYhhCroNmhzi2NegOyI8N/p45sXe', NULL, '2019-10-25 23:05:46', '2019-10-25 23:05:46', NULL, NULL),
+(30, 'sadasd', 'dasdasdas@gmail.com', 1, NULL, '$2y$10$vFusKb3H/3paq1f3EohKEucvVCirxdgZYrQZWC67EkQeBGSEwDCFi', NULL, '2019-10-25 23:16:50', '2019-10-25 23:16:50', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -528,6 +649,12 @@ ALTER TABLE `asignaciones`
 -- Indices de la tabla `audit_admin`
 --
 ALTER TABLE `audit_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `bitacora`
+--
+ALTER TABLE `bitacora`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -647,7 +774,13 @@ ALTER TABLE `asignaciones`
 -- AUTO_INCREMENT de la tabla `audit_admin`
 --
 ALTER TABLE `audit_admin`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `bitacora`
+--
+ALTER TABLE `bitacora`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT de la tabla `color`
@@ -665,7 +798,7 @@ ALTER TABLE `componente`
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `mando`
@@ -677,7 +810,7 @@ ALTER TABLE `mando`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT de la tabla `modelo`
@@ -719,7 +852,7 @@ ALTER TABLE `unidades`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
