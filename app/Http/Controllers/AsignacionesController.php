@@ -8,6 +8,7 @@ use App\Repuestos;
 use App\Role;
 use App\Unidades;
 use App\User;
+use Carbon\Carbon;
 use http\Exception;
 use Illuminate\Http\Request;
 use DB;
@@ -95,11 +96,11 @@ class AsignacionesController extends Controller
         $data->id_componente = $request->input("componente");
         $data->id_usuario = $user->id;//$request->input("id_usuario");
         $data->cantidad = $request->input("cantidad");
-        $data->fecha_asignacion = $now->format('H:i:s d-m-Y');//$now->format('H:i:s d-m-Y');//$request->input("id_unidad");
+        $data->fecha_asignacion = Carbon::now('America/Caracas')->format('Y-m-d h:m:s');//$now->format('H:i:s d-m-Y');//$request->input("id_unidad");
         if($data->save()){
-            $rep = Repuestos::find($request->input("repuesto"));
+        /*    $rep = Repuestos::find($request->input("repuesto"));
             $rep->cantidad = $rep->cantidad - $request->input("cantidad");
-            $rep->save();
+            $rep->save();*/
             return redirect()->route('asignaciones.index');
         }
         else {

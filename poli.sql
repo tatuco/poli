@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2019 a las 02:28:26
+-- Tiempo de generación: 28-10-2019 a las 05:56:25
 -- Versión del servidor: 10.3.16-MariaDB
 -- Versión de PHP: 7.3.7
 
@@ -46,7 +46,18 @@ INSERT INTO `asignaciones` (`id`, `id_repuesto`, `id_unidad`, `id_componente`, `
 (1, 1, 1, 1, 2, 6, '20:22:56 11-10-2019'),
 (2, 1, 1, 1, 2, 2, '07:24:35 13-06-2018'),
 (3, 1, 2, 1, 1, 23, '09:27:30 14-06-2018'),
-(4, 2, 2, 2, 1, 2, '21:39:45 11-10-2019');
+(4, 2, 2, 2, 1, 2, '21:39:45 11-10-2019'),
+(8, 1, 1, 1, 1, 1, '2019-10-28 12:10:51');
+
+--
+-- Disparadores `asignaciones`
+--
+DELIMITER $$
+CREATE TRIGGER `check_update_event` AFTER INSERT ON `asignaciones` FOR EACH ROW BEGIN
+                        UPDATE repuestos SET cantidad = (cantidad - NEW.cantidad) WHERE id=NEW.id_repuesto;
+                    END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -172,7 +183,18 @@ INSERT INTO `bitacora` (`id`, `user`, `email`, `action`, `entity`, `date`, `crea
 (70, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:01', '2019-10-26 04:29:01', '2019-10-26 04:29:01'),
 (71, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-25 11:10:24', '2019-10-26 04:30:24', '2019-10-26 04:30:24'),
 (72, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 11:10:11', '2019-10-26 04:31:11', '2019-10-26 04:31:11'),
-(73, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 11:10:16', '2019-10-26 04:31:16', '2019-10-26 04:31:16');
+(73, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-25 11:10:16', '2019-10-26 04:31:16', '2019-10-26 04:31:16'),
+(74, 'Admin', 'admin@admin.com', 'Inicio de Sesion.', 'login', '2019-10-28 12:10:15', '2019-10-28 05:46:15', '2019-10-28 05:46:15'),
+(75, 'Admin', 'admin@admin.com', 'listando', 'home', '2019-10-28 12:10:16', '2019-10-28 05:46:16', '2019-10-28 05:46:16'),
+(76, 'Admin', 'admin@admin.com', 'listando', 'admin', '2019-10-28 12:10:16', '2019-10-28 05:46:16', '2019-10-28 05:46:16'),
+(77, 'Admin', 'admin@admin.com', 'listando', 'bitacora', '2019-10-28 12:10:21', '2019-10-28 05:46:21', '2019-10-28 05:46:21'),
+(78, 'Admin', 'admin@admin.com', 'listando', 'asignaciones', '2019-10-28 12:10:28', '2019-10-28 05:46:28', '2019-10-28 05:46:28'),
+(79, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-28 12:10:34', '2019-10-28 05:46:34', '2019-10-28 05:46:34'),
+(80, 'Admin', 'admin@admin.com', 'listando', 'asignaciones', '2019-10-28 12:10:55', '2019-10-28 05:46:55', '2019-10-28 05:46:55'),
+(81, 'Admin', 'admin@admin.com', 'listando', 'asignaciones', '2019-10-28 12:10:58', '2019-10-28 05:46:58', '2019-10-28 05:46:58'),
+(82, 'Admin', 'admin@admin.com', 'creando', 'asignaciones', '2019-10-28 12:10:13', '2019-10-28 05:47:13', '2019-10-28 05:47:13'),
+(83, 'Admin', 'admin@admin.com', 'creando', 'asignaciones', '2019-10-28 12:10:51', '2019-10-28 05:51:51', '2019-10-28 05:51:51'),
+(84, 'Admin', 'admin@admin.com', 'listando', 'repuestos', '2019-10-28 12:10:51', '2019-10-28 05:53:51', '2019-10-28 05:53:51');
 
 -- --------------------------------------------------------
 
@@ -289,7 +311,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (46, '2019_04_16_084008657099_create_1555404008656_role_user_pivot_table', 1),
 (47, '2019_04_16_085008124252_add_last_login_at_to_users_table', 1),
 (48, '2019_10_11_193725_create_audit_admin_table', 1),
-(50, '2019_10_25_182035_create_bitacora_table', 2);
+(50, '2019_10_25_182035_create_bitacora_table', 2),
+(51, '2019_10_28_003542_create_trigger_calculate_repuesto', 3);
 
 -- --------------------------------------------------------
 
@@ -422,7 +445,7 @@ CREATE TABLE `repuestos` (
 --
 
 INSERT INTO `repuestos` (`id`, `repuesto`, `cantidad`, `descripcion`, `tipo_unidad`, `modelo`, `activo`) VALUES
-(1, 'motor', 2, 'motor para tacoma', 'Patrulla', 'tacoma', 1),
+(1, 'motor', 1, 'motor para tacoma', 'Patrulla', 'tacoma', 1),
 (2, 'aa', 422, 'sgsdg', 'Moto', 'tacoma', 0),
 (3, 'dsfdsa', 3, 'sfd', 'Patrulla', 'dfg', 1),
 (4, 'bugia', 2, 'nadaa', 'Moto', '2', 1),
@@ -572,7 +595,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `activo`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `deleted_at`, `last_login_at`) VALUES
-(1, 'Admin', 'admin@admin.com', 1, NULL, '$2y$10$iGIs9vT1KvnMf1aph4uFHuO0ebEnXr/tu6AemWTZanW13a7Gjb0Ua', NULL, '2019-10-11 13:40:35', '2019-10-26 03:03:48', NULL, '2019-10-26 03:03:48'),
+(1, 'Admin', 'admin@admin.com', 1, NULL, '$2y$10$iGIs9vT1KvnMf1aph4uFHuO0ebEnXr/tu6AemWTZanW13a7Gjb0Ua', NULL, '2019-10-11 13:40:35', '2019-10-28 05:46:16', NULL, '2019-10-28 05:46:16'),
 (2, 'Maria Jose', 'mariajose@gmail.com', 1, NULL, '$2y$10$iGIs9vT1KvnMf1aph4uFHuO0ebEnXr/tu6AemWTZanW13a7Gjb0Ua', NULL, '2019-10-11 13:40:35', '2019-10-11 13:40:35', NULL, NULL),
 (3, 'Talon Larsonsdas', 'chand@example.com', 1, '2019-10-11 17:10:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'h38MBFxq1K', '2019-10-11 22:10:03', '2019-10-12 01:30:17', NULL, '2019-09-11 22:10:03'),
 (4, 'Osvaldo Hodkiewicz III', 'mfay@example.net', 1, '2019-10-11 17:10:03', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'PiCnvD8rBN', '2019-10-11 22:10:03', '2019-10-11 22:10:03', NULL, '2019-09-11 22:10:03'),
@@ -768,7 +791,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `asignaciones`
 --
 ALTER TABLE `asignaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `audit_admin`
@@ -780,7 +803,7 @@ ALTER TABLE `audit_admin`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- AUTO_INCREMENT de la tabla `color`
@@ -810,7 +833,7 @@ ALTER TABLE `mando`
 -- AUTO_INCREMENT de la tabla `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT de la tabla `modelo`
